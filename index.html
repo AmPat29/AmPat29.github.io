@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เคล็ดลับการทำไข่เจียวหมูสับฟูนุ่ม</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap');
+
+        /* Pastel Color Palette & Base Styles */
+        :root {
+            --bg-blue: #E8F1F5;
+            --pastel-pink: #FFD1DC;
+            --pastel-blue: #B3E5FC;
+            --dark-blue: #4A90E2;
+            --white: #FFFFFF;
+            --text-color: #4A4A4A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-blue);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink));
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            color: #2C3E50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #5D6D7E;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(180, 190, 200, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        h2 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--pastel-pink);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* Ingredients List */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .ingredient-item {
+            background-color: #F9FBFC;
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 4px solid var(--pastel-blue);
+            font-weight: 400;
+        }
+
+        /* Steps (Interactive Checklist) */
+        .step-list {
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 12px;
+            background-color: #F9FBFC;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .step-item:hover {
+            background-color: #FFF0F5;
+            border-color: var(--pastel-pink);
+        }
+
+        .step-item.completed {
+            background-color: #E8F8F5;
+            text-decoration: line-through;
+            opacity: 0.6;
+            border-left: 4px solid #2ECC71;
+        }
+
+        .step-number {
+            background-color: var(--pastel-blue);
+            color: #2C3E50;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            padding-top: 2px;
+        }
+
+        /* Floating Button for Fun */
+        .chef-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--dark-blue), var(--pastel-blue));
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .chef-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .chef-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7F8C8D;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍳 เคล็ดลับไข่เจียวหมูสับฟูนุ่ม</h1>
+        <p>สูตรเด็ดทำง่ายใน 5 นาที อร่อยฟินกินได้ไม่มีเบื่อ</p>
+    </header>
+
+    <div class="container">
+
+        <section class="card">
+            <h2>🛒 วัตถุดิบที่ต้องเตรียม</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-item">🥚 ไข่ไก่สด 2-3 ฟอง</div>
+                <div class="ingredient-item">🐖 หมูสับ 50 กรัม</div>
+                <div class="ingredient-item">🧴 ซีอิ๊วขาว หรือน้ำปลา 1 ช้อนชา</div>
+                <div class="ingredient-item">💧 ซอสหอยนางรม 1/2 ช้อนชา</div>
+                <div class="ingredient-item">🌿 พริกไทยป่น (ตามชอบ)</div>
+                <div class="ingredient-item">🍋 น้ำมะนาว 3-4 หยด (เคล็ดลับฟู)</div>
+                <div class="ingredient-item">🛢️ น้ำมันสำหรับทอด</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>👩‍🍳 ขั้นตอนการทำอย่างละเอียด</h2>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;">* คลิกที่ขั้นตอนเพื่อทำเครื่องหมายว่าเสร็จแล้ว</p>
+            
+            <ul class="step-list">
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">1</div>
+                    <div class="step-text">ตอกไข่ไก่ใส่ชามผสม จากนั้นใส่หมูสับลงไป ใช้ส้อมยมหมูสับให้กระจายตัวไม่จับเป็นก้อนใหญ่</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">2</div>
+                    <div class="step-text">ปรุงรสด้วยซีอิ๊วขาว ซอสหอยนางรม และพริกไทยป่น หยดน้ำมะนาวลงไปเล็กน้อย (น้ำมะนาวจะช่วยให้ไข่ฟูหนานุ่มขึ้น)</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">3</div>
+                    <div class="step-text">ตีไข่และส่วนผสมทั้งหมดให้เข้ากันอย่างแรงจนเกิดฟองอากาศเยอะๆ เพื่อให้อากาศเข้าไปแทรกในเนื้อไข่</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">4</div>
+                    <div class="step-text">ตั้งกระทะเปิดไฟกลางค่อนไปทางแรง เทน้ำมันลงไปกะให้พอท่วมไข่ รอจนน้ำมันร้อนจัด (ทดสอบโดยการหยดเนื้อไข่ลงไปแล้วฟูทันที)</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">5</div>
+                    <div class="step-text">เทไข่ลงไปจากมุมสูงเพื่อระเบิดความฟู ลดไฟลงเป็นไฟกลางเล็กน้อยเพื่อให้หมูสับด้านในสุกทั่วถึง</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">6</div>
+                    <div class="step-text">เมื่อด้านล่างเริ่มเหลืองกรอบ ให้พลิกกลับอีกด้าน ทอดจนสุกเหลืองทองทั้งสองด้าน</div>
+                </li>
+                <li class="step-item" onclick="toggleStep(this)">
+                    <div class="step-number">7</div>
+                    <div class="step-text">ตักขึ้นพักสะเด็ดน้ำมัน นำเสิร์ฟคู่กับข้าวสวยร้อนๆ และซอสพริกตามชอบ!</div>
+                </li>
+            </ul>
+        </section>
+
+        <button class="chef-btn" onclick="finishCooking()">🎉 ทำเสร็จแล้ว! ทานให้อร่อยนะ</button>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Perfect Omelet Guide. Designed with Pastel Love 🌸</p>
+    </footer>
+
+    <script>
+        // ฟังก์ชันคลิกเพื่อติ๊กเลือกขั้นตอนที่ทำเสร็จแล้ว
+        function toggleStep(element) {
+            element.classList.toggle('completed');
+        }
+
+        // ฟังก์ชันปุ่มกดเมื่อทำเสร็จทั้งหมด
+        function finishCooking() {
+            const totalSteps = document.querySelectorAll('.step-item').length;
+            const completedSteps = document.querySelectorAll('.step-item.completed').length;
+
+            if (completedSteps === totalSteps) {
+                alert('✨ ยินดีด้วยครับ! คุณได้ไข่เจียวหมูสับฟูนุ่มแสนอร่อยพร้อมทานแล้ว 🍳😋');
+            } else {
+                alert('อย่าลืมทำตามขั้นตอนและคลิกติ๊กให้ครบทุกข้อก่อนน้า จะได้ไข่เจียวที่เพอร์เฟกต์ที่สุด! 💡');
+            }
+        }
+    </script>
+</body>
+</html>
